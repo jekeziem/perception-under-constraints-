@@ -111,8 +111,6 @@ return np.dot(a, b)
 
 **Ethical Framing**
 
-
-
 The methodology integrates technical rigor with ethical reflection:
 
 - Evaluates robustness across 2 skin tone groups, namely black and white skin colours.
@@ -122,6 +120,9 @@ The methodology integrates technical rigor with ethical reflection:
 - Ensures reproducibility via notebooks and controlled environment setup
 
 - Connects results with human alignment principles and Buolamwini’s critique of algorithmic bias
+
+---
+
 
 ### Results
 
