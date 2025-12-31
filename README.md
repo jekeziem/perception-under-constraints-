@@ -1,7 +1,6 @@
 # PerceptionUnderConstraint  
 **Stress-Testing Vision-Language Models Under Ski Conditions**
 
----
 
 ## Objective
 
@@ -129,6 +128,19 @@ def cosine_similarity(a, b):
 
 
 
+### Project Structure
+```
+├── data/
+│ ├── reference_images/
+│ └── ski_simulated_images/
+├── notebooks/
+│ ├── embedding_analysis.ipynb
+│ └── bias_evaluation.ipynb
+├── scripts/
+│ └── embedding_utils.py
+├── README.md
+└── requirements.txt
+```
 
 
 
