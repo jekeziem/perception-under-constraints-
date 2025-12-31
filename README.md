@@ -64,7 +64,7 @@ pip install torch transformers pillow numpy pandas
 - **Model:** CLIP (ViT-B/32)
 - **Task:** Image embedding similarity under environmental constraint
 
-### Pipeline
+## Pipeline
 
 1. Encode reference image into an embedding  
 2. Encode ski-simulated image into an embedding  
@@ -124,7 +124,7 @@ The methodology integrates technical rigor with ethical reflection:
 ---
 
 
-### Results
+## Results
 
 Cosine Similarity Statistics
 
