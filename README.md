@@ -1,5 +1,5 @@
 # PerceptionUnderConstraint  
-**Stress-Testing Vision-Language Models Under Real-World Occlusion**
+**Stress-Testing Vision-Language Models Under Ski Conditions**
 
 ---
 
@@ -11,9 +11,7 @@ This project investigates how vision-language models behave when visual input de
 
 ## Project Motivation
 
-## Project Motivation
-
-AI is often treated as neutral and universal, yet its deployment intersects with lived experience, identity, and power. Drawing on *The Human Alignment* and Joy Buolamwini’s work on algorithmic bias, this project reflects on how AI systems—particularly facial recognition technologies like RIDs used at ski resorts for access and tracking—encode assumptions that may invisibilize or misidentify individuals from minority groups. bell hooks’ *Ain’t I a Woman?* reminds us that technology, like society, does not treat all bodies equally.
+Modern AI systems are often evaluated on clean benchmarks, yet real-world social environments are messy and contextual. Joy Buolamwini’s research on algorithmic bias demonstrated that commercial facial recognition systems showed significantly higher error rates for darker‑skinned women compared to lighter‑skinned men, this project reflects on how AI systems—particularly facial recognition technologies like RIDs used at ski resorts for access and tracking—encode assumptions that may misidentify individuals from minority groups. 
 
 As someone positioned at the intersection of being both a consumer and potential subject of AI systems—profiting from technology yet vulnerable to its errors—this project explores how real-world constraints (goggles, glare, and lighting on ski slopes) expose fragility in AI perception. It asks: how does AI respond when it encounters bodies and faces that do not conform to its training assumptions, and what does this reveal about fairness, robustness, and ethical deployment?
 
@@ -21,11 +19,12 @@ The core question guiding this work is:
 
 **How does AI perception fail when environmental and social realities challenge its assumptions?**
 
-This is both a technical and ethical inquiry, bridging robustness testing with lived experience and critical theory, demonstrating that real-world AI is never abstract—it interacts with identity, power, and opportunity.
+This inquiry is both technical and ethical, situating model robustness alongside questions of equity, representation, and accountability in AI deployment.
+
 
 ## Dataset Overview
 
-- **Total images:** 60  
+- **Total images:** 60 retrieved from **fairface** & **utkfaces** database 
   - 30 darker skin  
   - 30 lighter skin  
 
@@ -35,18 +34,30 @@ Each subject has:
 
 ### Simulated Ski Conditions
 
-The following constraints were applied to approximate real skiing environments:
+The following constraints were applied to approximate real-world skiing conditions for robustness testing:
 
-- Partial facial occlusion (helmet and goggles)
-- Reduced brightness (overcast or shaded snow)
-- Increased contrast and glare
-- Cold-environment exposure and colour shifts
+- **Partial facial occlusion** via a dark rectangle over the eye area  
+- **Reduced brightness** to simulate overcast or shadowed conditions  
+- **Increased contrast** to mimic glare from snow and reflective surfaces
+- **Snow** to mimic snowy condition
 
-These transformations were designed to stress model robustness rather than maximise visual realism.
+No helmet, goggles, or photorealistic environmental objects were added. These transformations were designed solely to stress-test the model’s embedding stability rather than to create realistic images.
 
 ---
 
 ## Methodology
+
+### Development Environment
+
+This project was initially prototyped in **PyCharm** and executed via **Jupyter Notebooks** to allow step-by-step exploration of data preprocessing, embedding extraction, and analysis. After encountering memory and kernel stability issues on local hardware, the workflow was migrated to **Google Colab** for execution on a higher-memory environment with GPU support.  
+
+Python virtual environments were used to ensure dependency management and reproducibility:
+
+```bash
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install torch transformers pillow numpy pandas
+
 
 ### Model
 
@@ -85,4 +96,42 @@ def get_image_embedding(image_path):
     return embedding.squeeze().cpu().numpy()
 
 def cosine_similarity(a, b):
-    return np.dot(a, b)
+return np.dot(a, b)
+
+
+
+**Rationale:**
+
+- CLIP provides robust vision-language embeddings widely used in research (Radford et al., 2021)
+
+- Normalization ensures cosine similarity is meaningful and comparable across images
+
+- Using pre-trained embeddings avoids overfitting on the small dataset
+
+
+**Ethical Framing**
+
+
+
+The methodology integrates technical rigor with ethical reflection:
+
+- Evaluates robustness across 2 skin tone groups, namely black and white skin colours.
+
+- Highlights potential differential performance in real-world deployment
+
+- Ensures reproducibility via notebooks and controlled environment setup
+
+- Connects results with human alignment principles and Buolamwini’s critique of algorithmic bias
+
+### Results
+
+Cosine Similarity Statistics
+
+| Group        | Mean  | Std   | Min   | Max   |
+| ------------ | ----- | ----- | ----- | ----- |
+| Darker skin  | 0.667 | 0.061 | 0.515 | 0.746 |
+| Lighter skin | 0.671 | 0.064 | 0.468 | 0.797 |
+
+
+
+
