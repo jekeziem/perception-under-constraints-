@@ -11,15 +11,17 @@ This project investigates how vision-language models behave when visual input de
 
 ## Project Motivation
 
-Most computer vision systems are evaluated on clean, front-facing, well-lit images. These conditions rarely reflect real-world use. Faces are obscured by equipment, lighting is harsh or inconsistent, and environments introduce noise that models are not explicitly trained to handle.
+## Project Motivation
 
-The core question guiding this project was simple:
+AI is often treated as neutral and universal, yet its deployment intersects with lived experience, identity, and power. Drawing on *The Human Alignment* and Joy Buolamwini’s work on algorithmic bias, this project reflects on how AI systems—particularly facial recognition technologies like RIDs used at ski resorts for access and tracking—encode assumptions that may invisibilize or misidentify individuals from minority groups. bell hooks’ *Ain’t I a Woman?* reminds us that technology, like society, does not treat all bodies equally.
 
-**How does AI perception fail when the environment becomes adversarial rather than cooperative?**
+As someone positioned at the intersection of being both a consumer and potential subject of AI systems—profiting from technology yet vulnerable to its errors—this project explores how real-world constraints (goggles, glare, and lighting on ski slopes) expose fragility in AI perception. It asks: how does AI respond when it encounters bodies and faces that do not conform to its training assumptions, and what does this reveal about fairness, robustness, and ethical deployment?
 
-This is not only a technical concern. When AI systems are used for identification, access, or assessment, fragile perception becomes an ethical and societal issue.
+The core question guiding this work is:
 
----
+**How does AI perception fail when environmental and social realities challenge its assumptions?**
+
+This is both a technical and ethical inquiry, bridging robustness testing with lived experience and critical theory, demonstrating that real-world AI is never abstract—it interacts with identity, power, and opportunity.
 
 ## Dataset Overview
 
