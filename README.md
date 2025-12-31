@@ -98,7 +98,7 @@ def get_image_embedding(image_path):
 def cosine_similarity(a, b):
 return np.dot(a, b)
 
-
+---
 
 **Rationale:**
 
